@@ -2295,7 +2295,7 @@ article {
   border: 1px solid #535b5e;
   border-radius: 5px;
   margin: 15px auto 0;
-  max-width: 380px;
+  max-width: 475px;
   padding: 5px;
   position: relative;
   text-align: center;
@@ -2328,7 +2328,7 @@ article {
   font-size: 1em;
 }
 .abt-tb.extended {
-  max-width: 440px;
+  max-width: 515px;
 }
 .abt-tb.extended li {
   margin: 1%;

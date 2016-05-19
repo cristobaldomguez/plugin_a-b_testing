@@ -52,6 +52,8 @@ ABTest.prototype.get_toolbox = function(target) {
 
 	ab_tb += '<li class="abt-del"><i class="fa fa-eraser"></i></li>';
 	ab_tb += '<li class="abt-cl"><i class="fa fa-times"></i></li>';
+	ab_tb += '<li class="abt-sv"><i class="fa fa-cloud"></i></li>';
+
 	ab_tb += '</ul>';
 
 	return ab_tb;
