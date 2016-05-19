@@ -21,7 +21,7 @@ $('*', document.body).mouseup(function(event) {
 
 			$('.abt-tb').remove();
 			$('.edited').addClass('bg');
-			$(myVar.selectedText).append(myVar.get_toolbox(''));	// Crear el toolbox correspondiente
+			$(myVar.selectedText).append(myVar.get_toolbox('extended'));	// Crear el toolbox correspondiente
 			
 			var params = rangeObject.startContainer.parentNode.getAttribute('style'); // Almacena los estilos de css que fueron agregados a la selección
 			p = myVar.getCSS(params);
@@ -35,12 +35,12 @@ $('*', document.body).mouseup(function(event) {
 		if (hasBeenEdited) {
 			$('.abt-tb').remove();
 			var params = rangeObject.startContainer.parentNode.getAttribute('style'); // Almacena los estilos de css que fueron agregados a la selección
-			$(myVar.selectedText).append(myVar.get_toolbox(''));	// Crear el toolbox correspondiente
+			$(myVar.selectedText).append(myVar.get_toolbox('extended'));	// Crear el toolbox correspondiente
 
 		} else {
 			$('.abt-tb').remove();
 			$('.edited').addClass('bg');
-			$(myVar.selectedText).append(myVar.get_toolbox(''));	// Crear el toolbox correspondiente
+			$(myVar.selectedText).append(myVar.get_toolbox('extended'));	// Crear el toolbox correspondiente
 		}
 	}
 });
