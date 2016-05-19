@@ -87,14 +87,66 @@ ABTest.prototype.changeStyle = function(i) {
 }
 
 ABTest.prototype.getCSS = function(style) {
-	var properties = style.split(';'), css = {};
-	properties.forEach(function(property) {
-	    var tup = property.split(': ');
-	    if (tup[1] !== undefined) {
-	    	css[tup[0]] = tup[1];
-	    }
+	if (style) {
+		var css = {},
+		attributes = style.split(';');
 
-	    this.css = css;
-	    return css;
-	});
+		for (var i = 0; i < attributes.length; i++) {
+			var entry = attributes[i].split(': ');
+			if (entry != '') {
+				var k = entry.splice(0,1)[0].replace(/\s+/g, '');
+				css[k] = entry.join(':');
+			}
+		}
+
+		this.css = css;
+		return css;
+
+	} else {
+		console.log('No css to display');
+	}
 }
+
+ABTest.prototype.toolboxOptions = function(p) {
+	for(var k in p){
+		if (k == 'font-weight' && p[k] == 'bold') {
+			$('.abt-b').addClass('selected');
+		}
+
+		if (k == 'text-decoration' && p[k] == 'underline') {
+			$('.abt-u').addClass('selected');
+		}
+
+		if (k == 'font-style' && p[k] == 'italic') {
+			$('.abt-i').addClass('selected');
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

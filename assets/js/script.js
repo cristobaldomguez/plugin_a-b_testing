@@ -1,10 +1,10 @@
 $('*', document.body).mouseup(function(event) {
 	event.stopPropagation();
-	var userSelection = window.getSelection(); 					// Variable que almacena la selección hecha por la persona
+	var userSelection = window.getSelection();
 	var hasBeenClicked = userSelection.isCollapsed;  			// Para saber si se realizó un click o una selección (Boolean)
-	var is_contentEditable = $(this).attr('contenteditable');	// Revisa el parent para saber si el texto ya es editable
 	var rangeObject = userSelection.getRangeAt(0); 				// Retorna el string seleccionado
 	var hasBeenEdited = rangeObject.startContainer.parentNode.getAttribute('class') == 'edited' ? true : false; // Si se ha seleccionado un elemento ya editado (Boolean)
+	var is_contentEditable = $(this).attr('contenteditable');
 
 	if (!window.myVar) {
 		window.myVar = new ABTest($(this));
@@ -18,13 +18,16 @@ $('*', document.body).mouseup(function(event) {
 	if (hasBeenClicked) {
 
 		if (hasBeenEdited) {
-			var params = rangeObject.startContainer.parentNode.getAttribute('style'); // Almacena los estilos de css que fueron agregados a la selección
-			myVar.getCSS(params);
 
 			$('.abt-tb').remove();
 			$('.edited').addClass('bg');
 			$(myVar.selectedText).append(myVar.get_toolbox('extended'));	// Crear el toolbox correspondiente
-			console.log(params);
+			
+			var params = rangeObject.startContainer.parentNode.getAttribute('style'); // Almacena los estilos de css que fueron agregados a la selección
+			p = myVar.getCSS(params);
+			// console.log(p);
+			// console.log(myVar);
+			myVar.toolboxOptions(p);
 		}
 
 	} else if (!hasBeenClicked) {
@@ -43,14 +46,17 @@ $('*', document.body).mouseup(function(event) {
 });
 
 $('body').on('click', '.abt-b', function(event) {
+	$('.abt-b').toggleClass('selected');
 	myVar.changeStyle('b');
 });
 
 $('body').on('click', '.abt-u', function(event) {
+	$('.abt-u').toggleClass('selected');
 	myVar.changeStyle('u');
 });
 
 $('body').on('click', '.abt-i', function(event) {
+	$('.abt-i').toggleClass('selected');
 	myVar.changeStyle('i');
 });
 
