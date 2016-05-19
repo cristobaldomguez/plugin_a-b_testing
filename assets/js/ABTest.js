@@ -36,23 +36,23 @@ ABTest.prototype.get_toolbox = function(target) {
 		var ab_tb = '<ul class="abt-tb">';
 	}
 
-	ab_tb += '<li class="abt-te abt-b"><i class="fa fa-bold"></i></li>';
-	ab_tb += '<li class="abt-te abt-u"><i class="fa fa-underline"></i></li>';
-	ab_tb += '<li class="abt-te abt-i"><i class="fa fa-italic"></i></li>';
+	ab_tb += '<li class="abt-te abt-b"><i class="icon-bold"></i></li>';
+	ab_tb += '<li class="abt-te abt-u"><i class="icon-underline"></i></li>';
+	ab_tb += '<li class="abt-te abt-i"><i class="icon-italic"></i></li>';
 
-	ab_tb += '<li class="abt-te abt-a"><i class="fa fa-font"></i></li>';
+	ab_tb += '<li class="abt-te abt-a"><i class="icon-font"></i></li>';
 
-	ab_tb += '<li class="abt-al abt-j"><i class="fa fa-align-justify"></i></li>';
-	ab_tb += '<li class="abt-al abt-r"><i class="fa fa-align-right"></i></li>';
-	ab_tb += '<li class="abt-al abt-c"><i class="fa fa-align-center"></i></li>';
-	ab_tb += '<li class="abt-al abt-l"><i class="fa fa-align-left"></i></li>';
+	ab_tb += '<li class="abt-al abt-j"><i class="icon-align-justify"></i></li>';
+	ab_tb += '<li class="abt-al abt-r"><i class="icon-align-right"></i></li>';
+	ab_tb += '<li class="abt-al abt-c"><i class="icon-align-center"></i></li>';
+	ab_tb += '<li class="abt-al abt-l"><i class="icon-align-left"></i></li>';
 
-	ab_tb += '<li class="abt-li abt-it"><i class="fa fa-text-width"></i></li>';
-	ab_tb += '<li class="abt-li abt-il"><i class="fa fa-text-height"></i></li>';
+	ab_tb += '<li class="abt-li abt-it"><i class="icon-text-width"></i></li>';
+	ab_tb += '<li class="abt-li abt-il"><i class="icon-text-height"></i></li>';
 
-	ab_tb += '<li class="abt-del"><i class="fa fa-eraser"></i></li>';
-	ab_tb += '<li class="abt-cl"><i class="fa fa-times"></i></li>';
-	ab_tb += '<li class="abt-sv"><i class="fa fa-cloud"></i></li>';
+	ab_tb += '<li class="abt-del"><i class="icon-eraser"></i></li>';
+	ab_tb += '<li class="abt-cl"><i class="icon-cancel"></i></li>';
+	ab_tb += '<li class="abt-sv"><i class="icon-cloud"></i></li>';
 
 	ab_tb += '</ul>';
 
