@@ -3,7 +3,7 @@ $.fn.makeItEditable = function() {
 		contenteditable: 'true',
 		class: 'editable'
 	});
-}
+};
 
 $.fn.removeStyle = function(style) {
 	var search = new RegExp(style + '[^;]+;?', 'g');

@@ -340,7 +340,7 @@
 *:focus {
   outline: none;
 }
-.abt-tb {
+.abt-toolbox {
   background-color: white;
   border: 1px solid #535b5e;
   border-radius: 5px;
@@ -349,7 +349,7 @@
   padding: 5px;
   position: relative;
 }
-.abt-tb li {
+.abt-toolbox li {
   cursor: pointer;
   display: inline-block;
   line-height: 1px;
@@ -359,35 +359,35 @@
   text-align: center;
   width: 19px;
 }
-.abt-tb li:hover,
-.abt-tb li.selected {
+.abt-toolbox li:hover,
+.abt-toolbox li.selected {
   background-color: #535b5e;
   border-radius: 5px;
 }
-.abt-tb li:hover i,
-.abt-tb li.selected i {
+.abt-toolbox li:hover i,
+.abt-toolbox li.selected i {
   color: white;
 }
-.abt-tb li.abt-a,
-.abt-tb li.abt-li {
+.abt-toolbox li.abt-a,
+.abt-toolbox li.abt-li {
   display: none;
 }
-.abt-tb li i {
+.abt-toolbox li i {
   color: #535b5e;
   font-size: 1em;
 }
-.abt-tb.extended {
+.abt-toolbox.extended {
   max-width: 515px;
 }
-.abt-tb.extended li {
+.abt-toolbox.extended li {
   margin: 1%;
   padding: 1.2% 1%;
 }
-.abt-tb.extended li.abt-a,
-.abt-tb.extended li.abt-li {
+.abt-toolbox.extended li.abt-a,
+.abt-toolbox.extended li.abt-li {
   display: inline-block;
 }
-.abt-tb:after {
+.abt-toolbox:after {
   content: '';
   position: absolute;
   bottom: 100%;
@@ -400,7 +400,7 @@
   border-left: solid 12px transparent;
   border-right: solid 12px transparent;
 }
-.abt-tb:before {
+.abt-toolbox:before {
   content: '';
   position: absolute;
   bottom: 100%;
