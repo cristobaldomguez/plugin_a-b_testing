@@ -2287,41 +2287,56 @@ article {
   overflow: visible;
   clip: auto;
 }
+*:focus {
+  outline: none;
+}
 .abt-tb {
   background-color: white;
   border: 1px solid #535b5e;
   border-radius: 5px;
   margin: 15px auto 0;
-  max-width: 440px;
+  max-width: 380px;
   padding: 5px;
   position: relative;
   text-align: center;
 }
 .abt-tb li {
+  cursor: pointer;
   display: inline-block;
   line-height: 1px;
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   position: relative;
   text-align: center;
   width: 19px;
 }
-.abt-tb li:hover {
+.abt-tb li:hover,
+.abt-tb li.selected {
   background-color: #535b5e;
   border-radius: 5px;
 }
-.abt-tb li:hover i {
+.abt-tb li:hover i,
+.abt-tb li.selected i {
   color: white;
+}
+.abt-tb li.abt-a,
+.abt-tb li.abt-li {
+  display: none;
 }
 .abt-tb li i {
   color: #535b5e;
   font-size: 1em;
 }
 .abt-tb.extended {
-  max-width: 525px;
+  max-width: 440px;
 }
 .abt-tb.extended li {
-  padding: 1%;
+  margin: 1%;
+  padding: 1.2% 1%;
+}
+.abt-tb.extended li.abt-a,
+.abt-tb.extended li.abt-li {
+  display: inline-block;
 }
 .abt-tb:after {
   content: '';
@@ -2348,4 +2363,7 @@ article {
   border-bottom: solid 14px #535b5e;
   border-left: solid 14px transparent;
   border-right: solid 14px transparent;
+}
+.edited.bg {
+  background-color: yellow;
 }
