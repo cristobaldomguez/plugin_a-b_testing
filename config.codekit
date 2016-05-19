@@ -33,6 +33,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/assets\/js\/functions.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/functions.js",
+		"outputAbbreviatedPath": "\/assets\/js\/functions.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/functions.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/functions.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/functions.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/assets\/js\/lib\/jquery-2.2.3.min.js": {
 		"fileType": 64,
 		"ignore": 0,

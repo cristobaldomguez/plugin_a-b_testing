@@ -1,28 +1,31 @@
+*:focus {
+    outline: none;
+}
+
 .abt-tb {
 	background-color: white;
 	border: 1px solid @colorGray;
 	border-radius: 5px;
 	margin: 15px auto 0;
-	max-width: 440px;
+	max-width: 380px;
 	padding: 5px;
 	position:relative;
 	text-align: center;
-		
-
+	
 	li {
+		cursor: pointer;
 		display: inline-block;
 		line-height: 1px;
 		margin: 1%;
-		//padding: 2%;
-		padding: 1%;
+		padding: 2%;
 		position: relative;
 		text-align: center;
 		width: 19px;
 
-		&:hover {
+		&:hover,
+		&.selected {
 			background-color: @colorGray;
 			border-radius: 5px;
-			
 
 			i {
 				color: white;
@@ -31,7 +34,7 @@
 
 		&.abt-a,
 		&.abt-li {
-			//display: none;
+			display: none;
 		}
 
 		i {
@@ -42,14 +45,15 @@
 }
 
 .abt-tb.extended {
-	max-width: 525px;
+	max-width: 440px;
 
 	li {
-		padding: 1%;
+		margin: 1%;
+		padding: 1.2% 1%;
 
 		&.abt-a,
 		&.abt-li {
-			//display: inline-block;
+			display: inline-block;
 		}
 	}
 }
@@ -80,4 +84,8 @@
     border-bottom: solid 14px @colorGray;
     border-left: solid 14px transparent;
     border-right: solid 14px transparent;
+}
+
+.edited.bg {
+	background-color: yellow;
 }
