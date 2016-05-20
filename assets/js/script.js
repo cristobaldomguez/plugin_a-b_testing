@@ -17,22 +17,23 @@ $('*', document.body).mouseup(function(event) {
 
 	if (hasBeenClicked) {
 		if (hasBeenEdited) {
-			window.myVar.add_toolbox('extended');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
+			window.myVar.add_toolbox('');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
 			window.myVar.toolboxOptions(rangeObject);
 		}
 	} else if (!hasBeenClicked) {
 		if (hasBeenEdited) {
-			window.myVar.add_toolbox('extended');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
+			window.myVar.add_toolbox('');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
 		} else {
-			window.myVar.add_toolbox('extended');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
+			window.myVar.add_toolbox('');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
 		}
 	}
 });
 
-$('body').on('click', '.abt-te', function() {
+$('body').on('click', '.abt-te', function(e) {
+	e.preventDefault();
 	var clase = $(this).attr('class').split(' ');
 	var val = clase[1].split('-');
 	
@@ -40,7 +41,8 @@ $('body').on('click', '.abt-te', function() {
 	window.myVar.changeStyle(val[1]);
 });
 
-$('body').on('click', '.abt-al', function() {
+$('body').on('click', '.abt-al', function(e) {
+	e.preventDefault();
 	var clase = $(this).attr('class').split(' ');
 	var val = clase[1].split('-');
 
@@ -49,7 +51,8 @@ $('body').on('click', '.abt-al', function() {
 	window.myVar.changeStyle(val[1]);
 });
 
-$('body').on('click', '.abt-del', function() {
+$('body').on('click', '.abt-del', function(e) {
+	e.preventDefault();
 	$(this).parent().parent().css("text-align", "");
 	$('.edited').contents().unwrap();					// Eliminar el span que envuelve el texto
 	$('.abt-toolbox').remove();
@@ -57,7 +60,27 @@ $('body').on('click', '.abt-del', function() {
 	delete window.myVar;
 });
 
-$('body').on('click', '.abt-cl', function() {
+$('body').on('click', '.abt-cl', function(e) {
+	e.preventDefault();
 	$('.abt-toolbox').remove();
 	$('.edited.bg').removeClass('bg');
 });
+
+$('body').on('click', '.abt-h', function(e) {
+	e.preventDefault();
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,23 +37,32 @@ ABTest.prototype.create_toolbox = function(target) {
 		ab_tb = '<ul class="abt-toolbox">';
 	}
 
-		ab_tb += '<li class="abt-te abt-b"><i class="icon-bold"></i></li>';
-		ab_tb += '<li class="abt-te abt-u"><i class="icon-underline"></i></li>';
-		ab_tb += '<li class="abt-te abt-i"><i class="icon-italic"></i></li>';
+		ab_tb += '<li><a href="#" class="abt-he abt-h"><i class="icon-lifebuoy"></i></a></li>';
+		
+		ab_tb += '<li>';
+			ab_tb += '<a href="#" class="abt-te abt-b"><i class="icon-bold"></i></a>';
+			ab_tb += '<a href="#" class="abt-te abt-u"><i class="icon-underline"></i></a>';
+			ab_tb += '<a href="#" class="abt-te abt-i"><i class="icon-italic"></i></a>';
+			ab_tb += '<a href="#" class="abt-te abt-a"><i class="icon-font"></i></a>';
+		ab_tb += '</li>';
+		
+		ab_tb += '<li>';
+			ab_tb += '<a href="#" class="abt-al abt-j"><i class="icon-align-justify"></i></a>';
+			ab_tb += '<a href="#" class="abt-al abt-l"><i class="icon-align-left"></i></a>';
+			ab_tb += '<a href="#" class="abt-al abt-c"><i class="icon-align-center"></i></a>';
+			ab_tb += '<a href="#" class="abt-al abt-r"><i class="icon-align-right"></i></a>';
+		ab_tb += '</li>';
 
-		ab_tb += '<li class="abt-te abt-a"><i class="icon-font"></i></li>';
-
-		ab_tb += '<li class="abt-al abt-j"><i class="icon-align-justify"></i></li>';
-		ab_tb += '<li class="abt-al abt-l"><i class="icon-align-left"></i></li>';
-		ab_tb += '<li class="abt-al abt-c"><i class="icon-align-center"></i></li>';
-		ab_tb += '<li class="abt-al abt-r"><i class="icon-align-right"></i></li>';
-
-		ab_tb += '<li class="abt-li abt-it"><i class="icon-text-width"></i></li>';
-		ab_tb += '<li class="abt-li abt-il"><i class="icon-text-height"></i></li>';
-
-		ab_tb += '<li class="abt-del"><i class="icon-trash"></i></li>';
-		ab_tb += '<li class="abt-cl"><i class="icon-cancel"></i></li>';
-		ab_tb += '<li class="abt-sv"><i class="icon-floppy"></i></li>';
+		ab_tb += '<li class="abt-li">';
+			ab_tb += '<a href="#" class="abt-li abt-it"><i class="icon-text-width"></i></a>';
+			ab_tb += '<a href="#" class="abt-li abt-il"><i class="icon-text-height"></i></a>';
+		ab_tb += '</li>';
+		
+		ab_tb += '<li>';
+			ab_tb += '<a href="#" class="abt-del"><i class="icon-trash"></i></a>';
+			ab_tb += '<a href="#" class="abt-cl"><i class="icon-cancel"></i></a>';
+			ab_tb += '<a href="#" class="abt-sv"><i class="icon-floppy"></i></a>';
+		ab_tb += '</li>';
 
 	ab_tb += '</ul>';
 

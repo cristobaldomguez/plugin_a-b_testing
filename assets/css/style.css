@@ -345,49 +345,54 @@
   border: 1px solid #535b5e;
   border-radius: 5px;
   margin: 15px auto;
-  max-width: 475px;
-  padding: 5px;
-  position: relative;
-}
-.abt-toolbox li {
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1px;
-  margin: 1%;
-  padding: 2%;
+  max-width: 425px;
+  padding: 0 0.5vw;
   position: relative;
   text-align: center;
-  width: 19px;
 }
-.abt-toolbox li:hover,
-.abt-toolbox li.selected {
-  background-color: #535b5e;
-  border-radius: 5px;
+.abt-toolbox li {
+  border-right: 1px solid rgba(83, 91, 94, 0.25);
+  display: inline-block;
+  margin: 0 1.5% 0 0;
+  padding: 1.5%;
 }
-.abt-toolbox li:hover i,
-.abt-toolbox li.selected i {
-  color: white;
+.abt-toolbox li:last-child {
+  border-right: none;
 }
-.abt-toolbox li.abt-a,
 .abt-toolbox li.abt-li {
   display: none;
 }
-.abt-toolbox li.abt-division {
-  width: 5px;
+.abt-toolbox li a {
+  display: inline-block;
+  line-height: 1px;
+  margin: 0.1vw;
+  padding: 0.3vw;
+  position: relative;
+  text-align: center;
 }
-.abt-toolbox li i {
+.abt-toolbox li a:hover,
+.abt-toolbox li a.selected {
+  background-color: #535b5e;
+  border-radius: 5px;
+}
+.abt-toolbox li a:hover i,
+.abt-toolbox li a.selected i {
+  color: white;
+}
+.abt-toolbox li a.abt-a {
+  display: none;
+}
+.abt-toolbox li a i {
   color: #535b5e;
   font-size: 1em;
 }
 .abt-toolbox.extended {
-  max-width: 515px;
+  max-width: 575px;
 }
-.abt-toolbox.extended li {
-  margin: 1%;
-  padding: 1.2% 1%;
-}
-.abt-toolbox.extended li.abt-a,
 .abt-toolbox.extended li.abt-li {
+  display: inline-block;
+}
+.abt-toolbox.extended li a.abt-a {
   display: inline-block;
 }
 .abt-toolbox:after {

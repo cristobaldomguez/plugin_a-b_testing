@@ -7,57 +7,69 @@
 	border: 1px solid @colorGray;
 	border-radius: 5px;
 	margin: 15px auto;
-	max-width: 475px;
-	padding: 5px;
+	max-width: 425px;
+	padding: 0 0.5vw;
 	position: relative;
+	text-align: center;
 	
 	li {
-		cursor: pointer;
+		border-right: 1px solid fade(@colorGray, 25%);
 		display: inline-block;
-		line-height: 1px;
-		margin: 1%;
-		padding: 2%;
-		position: relative;
-		text-align: center;
-		width: 19px;
-
-		&:hover,
-		&.selected {
-			background-color: @colorGray;
-			border-radius: 5px;
-
-			i {
-				color: white;
-			}
+		margin: 0 1.5% 0 0;
+		padding: 1.5%;
+		
+		&:last-child {
+			border-right: none;
 		}
 
-		&.abt-a,
 		&.abt-li {
 			display: none;
 		}
 
-		&.abt-division {
-			//border-right: 1px solid black;
-			width: 5px;
-		}
+		a {
+			display: inline-block;
+			line-height: 1px;
+			margin: 0.1vw;
+			padding: 0.3vw;
+			position: relative;
+			text-align: center;
 
-		i {
-			color: @colorGray;
-			font-size: 1em;
+			&:hover,
+			&.selected {
+				background-color: @colorGray;
+				border-radius: 5px;
+
+				i {
+					color: white;
+				}
+			}
+
+			&.abt-a {
+				display: none;
+			}
+
+			i {
+				color: @colorGray;
+				font-size: 1em;
+			}
 		}
 	}
 }
 
 .abt-toolbox.extended {
-	max-width: 515px;
+	max-width: 575px;
 
 	li {
-		margin: 1%;
-		padding: 1.2% 1%;
 
-		&.abt-a,
 		&.abt-li {
 			display: inline-block;
+		}
+		
+		a {
+
+			&.abt-a {
+				display: inline-block;
+			}
 		}
 	}
 }
