@@ -7,7 +7,7 @@ $('*', document.body).mouseup(function(event) {
 	var isNot_ContentEditable = $(this).attr('contenteditable') ? false : true;
 
 	if (!window.myVar) {
-		window.myVar = new ABTest($(this));
+		window.myVar = new ABTest($(this), _abt.setUser);
 		window.myVar.wrapContent();
 	}
 
@@ -17,17 +17,17 @@ $('*', document.body).mouseup(function(event) {
 
 	if (hasBeenClicked) {
 		if (hasBeenEdited) {
-			window.myVar.add_toolbox('');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
+			window.myVar.add_toolbox('extended');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
 			window.myVar.toolboxOptions(rangeObject);
 		}
 	} else if (!hasBeenClicked) {
 		if (hasBeenEdited) {
-			window.myVar.add_toolbox('');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
+			window.myVar.add_toolbox('extended');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
 		} else {
-			window.myVar.add_toolbox('');
-			$(window.myVar.selectedText).append(window.myVar.create_toolbox(''));
+			window.myVar.add_toolbox('extended');
+			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
 		}
 	}
 });

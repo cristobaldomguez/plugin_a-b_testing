@@ -27,8 +27,20 @@
 	<footer id="footer">Hola, este es el footer</footer>
 	
 	<script src="assets/js/lib/jquery-2.2.3.min.js"></script>
-	<script src="assets/js/ABTest.js"></script>
-	<script src="assets/js/functions.js"></script>
-	<script src="assets/js/script.js"></script>
+
+	<script type="text/javascript">
+		var _abt = {
+			setUser  : "ABT-00ABC00123",
+		};
+
+		(function() {
+			var abt = document.createElement('script'); abt.type = 'text/javascript'; abt.async = true; abt.id = 'abt';
+			//abt.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.rPi3.local/abt.js';
+			abt.src = 'assets/js/script.min.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(abt, s);
+		})();
+	</script>
+
 </body>
 </html>
+

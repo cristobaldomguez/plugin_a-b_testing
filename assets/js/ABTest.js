@@ -1,8 +1,9 @@
-var ABTest = function(_this) {
+var ABTest = function(_this, usr) {
 	this._this = _this;
 	this.selectedText = _this.get(0);
 	this.data = {};
 	this.data.css = {};
+	this.data.setUser = usr;
 };
 
 ABTest.prototype.wrapContent = function() {
@@ -37,7 +38,7 @@ ABTest.prototype.create_toolbox = function(target) {
 		ab_tb = '<ul class="abt-toolbox">';
 	}
 
-		ab_tb += '<li><a href="#" class="abt-he abt-h"><i class="icon-lifebuoy"></i></a></li>';
+		ab_tb += '<li><a href="#" class="abt-he abt-h" target="_blank"><i class="icon-lifebuoy"></i></a></li>';
 		
 		ab_tb += '<li>';
 			ab_tb += '<a href="#" class="abt-te abt-b"><i class="icon-bold"></i></a>';

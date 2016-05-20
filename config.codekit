@@ -13,7 +13,7 @@
 		},
 	"\/assets\/js\/ABTest.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/ABTest.js",
 		"outputAbbreviatedPath": "\/assets\/js\/ABTest.min.js",
@@ -35,7 +35,7 @@
 		},
 	"\/assets\/js\/functions.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/functions.js",
 		"outputAbbreviatedPath": "\/assets\/js\/functions.min.js",
@@ -333,6 +333,20 @@
 	],
 "lastSavedByUser": "Cristobal Dominguez",
 "manualImportLinks": {
+	"\/assets\/js\/script.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/ABTest.js",
+			"position": 0,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/functions.js",
+			"position": 1,
+			"type": 0
+			}
+		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
