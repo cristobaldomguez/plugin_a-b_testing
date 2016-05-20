@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0" />
-	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="shortcut icon" href="assets/ico/favicon.ico" />
 	<title>Selection</title>
 	
@@ -27,16 +26,15 @@
 	<footer id="footer">Hola, este es el footer</footer>
 	
 	<script src="assets/js/lib/jquery-2.2.3.min.js"></script>
-
 	<script type="text/javascript">
 		var _abt = {
 			setUser  : "ABT-00ABC00123",
 		};
 
 		(function() {
-			var abt = document.createElement('script'); abt.type = 'text/javascript'; abt.async = true; abt.id = 'abt';
-			//abt.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.rPi3.local/abt.js';
-			abt.src = 'assets/js/script.min.js';
+			var abt = document.createElement('script'); abt.type = 'text/javascript'; abt.async = true;
+			abt.src = 'http://rPi3.local/abt.min.js';
+			//abt.src = 'assets/js/script.min.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(abt, s);
 		})();
 	</script>

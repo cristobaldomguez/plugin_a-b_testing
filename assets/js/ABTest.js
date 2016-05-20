@@ -171,3 +171,15 @@ ABTest.prototype.add_toolbox = function() {
 	$('.abt-toolbox').remove();
 	$('.edited').addClass('bg');
 };
+
+ABTest.prototype.button_action = function(_this) {
+	var clase = _this.attr('class').split(' ');
+	var val = clase[1].split('-');
+
+	if (val[1] === 'j' || val[1] === 'l' || val[1] === 'c' || val[1] === 'r') {
+		$('.abt-al').removeClass('selected');
+	}
+	
+	$('.abt-' + val[1]).toggleClass('selected');
+	curObj.changeStyle(val[1]);
+};
