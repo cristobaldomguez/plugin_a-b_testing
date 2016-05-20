@@ -1,8 +1,8 @@
 var ABTest = function(_this) {
-	this.data = {};
 	this._this = _this;
 	this.selectedText = _this.get(0);
-	this.css = {};
+	this.data = {};
+	this.data.css = {};
 };
 
 ABTest.prototype.wrapContent = function() {
@@ -14,7 +14,6 @@ ABTest.prototype.wrapContent = function() {
 
 		var nNd = document.createElement("span");
 		nNd.className = "edited bg";
-		//nNd.style.cssText = "background-color: yellow;"
 		var w = window.getSelection().getRangeAt(0);
 		w.surroundContents(nNd);
 		return nNd.innerHTML;
@@ -45,16 +44,16 @@ ABTest.prototype.create_toolbox = function(target) {
 		ab_tb += '<li class="abt-te abt-a"><i class="icon-font"></i></li>';
 
 		ab_tb += '<li class="abt-al abt-j"><i class="icon-align-justify"></i></li>';
-		ab_tb += '<li class="abt-al abt-r"><i class="icon-align-right"></i></li>';
-		ab_tb += '<li class="abt-al abt-c"><i class="icon-align-center"></i></li>';
 		ab_tb += '<li class="abt-al abt-l"><i class="icon-align-left"></i></li>';
+		ab_tb += '<li class="abt-al abt-c"><i class="icon-align-center"></i></li>';
+		ab_tb += '<li class="abt-al abt-r"><i class="icon-align-right"></i></li>';
 
 		ab_tb += '<li class="abt-li abt-it"><i class="icon-text-width"></i></li>';
 		ab_tb += '<li class="abt-li abt-il"><i class="icon-text-height"></i></li>';
 
-		ab_tb += '<li class="abt-del"><i class="icon-eraser"></i></li>';
+		ab_tb += '<li class="abt-del"><i class="icon-trash"></i></li>';
 		ab_tb += '<li class="abt-cl"><i class="icon-cancel"></i></li>';
-		ab_tb += '<li class="abt-sv"><i class="icon-cloud"></i></li>';
+		ab_tb += '<li class="abt-sv"><i class="icon-floppy"></i></li>';
 
 	ab_tb += '</ul>';
 
@@ -62,89 +61,103 @@ ABTest.prototype.create_toolbox = function(target) {
 };
 
 ABTest.prototype.changeStyle = function(i) {
-	//myVar.data.b = !myVar.data.b;
-	eval("myVar.data" + i + "=" + "!myVar.data" + i + ";");
+	//this.data.b = !this.data.b;
+	eval("this.data" + i + "=" + "!this.data" + i + ";");
+
 	var rtrn = {};
 	
 	switch(i) {
 	    case 'b':
 	        rtrn.prop = 'font-weight';
 	        rtrn.val = 'bold';
+	        rtrn.css = 'fontWeight';
 	        break;
 	    case 'u':
 	        rtrn.prop = 'text-decoration';
 	        rtrn.val = 'underline';
+	        rtrn.css = 'textDecoration';
 	        break;
 	    case 'i':
 	        rtrn.prop = 'font-style';
 	        rtrn.val = 'italic';
+	        rtrn.css = 'fontStyle';
 	        break;
+	    case 'j':
+	        rtrn.prop = 'text-align';
+	        rtrn.val = 'justify';
+	        rtrn.css = 'textAlign';
+	        break;
+	    case 'r':
+	        rtrn.prop = 'text-align';
+	        rtrn.val = 'right';
+	        rtrn.css = 'textAlign';
+	        break;
+	    case 'c':
+	        rtrn.prop = 'text-align';
+	        rtrn.val = 'center';
+	        rtrn.css = 'textAlign';
+	        break;
+	    case 'l':
+	        rtrn.prop = 'text-align';
+	        rtrn.val = 'left';
+	        rtrn.css = 'textAlign';
+	        break;
+
 	}
 
-	if (eval("myVar.data" + i + ";")) {
-		$('.edited').css(rtrn.prop, rtrn.val);
+	if (eval("this.data" + i + ";")) {
+
+		if (rtrn.css === 'textAlign') {
+			$('.edited').parent().css(rtrn.prop, rtrn.val);
+		} else {
+			$('.edited').css(rtrn.prop, rtrn.val);
+		}
+
+		this.data.css[rtrn.css] = rtrn.val;
 	} else {
 		$('.edited').removeStyle(rtrn.prop);
+		delete this.data.css[rtrn.css];
 	}
 
 	$(this).toggleClass('selected');
 };
 
-ABTest.prototype.getCSS = function(style) {
-	if (style) {
-		var css = {},
-		attributes = style.split(';');
-
-		for (var i = 0; i < attributes.length; i++) {
-			var entry = attributes[i].split(': ');
-			if (entry !== '') {
-				var k = entry.splice(0,1)[0].replace(/\s+/g, '');
-				css[k] = entry.join(':');
-			}
-		}
-
-		this.css = css;
-		return css;
-
-	} else {
-		console.log('No css to display');
-	}
-};
-
-ABTest.prototype.toolboxOptions = function(rangeObject) {
-	var params = rangeObject.startContainer.parentNode.getAttribute('style'); // Almacena los estilos de css que fueron agregados a la selección
-	var p = window.myVar.getCSS(params);
+ABTest.prototype.toolboxOptions = function() {
+	var p = this.data.css;
 
 	for(var k in p){
-		if (k === 'font-weight' && p[k] === 'bold') {
+		if (k === 'fontWeight' && p[k] === 'bold') {
 			$('.abt-b').addClass('selected');
 		}
 
-		if (k === 'text-decoration' && p[k] === 'underline') {
+		if (k === 'textDecoration' && p[k] === 'underline') {
 			$('.abt-u').addClass('selected');
 		}
 
-		if (k === 'font-style' && p[k] === 'italic') {
+		if (k === 'fontStyle' && p[k] === 'italic') {
 			$('.abt-i').addClass('selected');
+		}
+
+		if (k === 'textAlign' && p[k] === 'justify') {
+			$('.abt-j').addClass('selected');
+		}
+
+		if (k === 'textAlign' && p[k] === 'right') {
+			$('.abt-r').addClass('selected');
+		}
+
+		if (k === 'textAlign' && p[k] === 'center') {
+			$('.abt-c').addClass('selected');
+		}
+
+		if (k === 'textAlign' && p[k] === 'left') {
+			$('.abt-l').addClass('selected');
 		}
 	}
 };
 
 
-ABTest.prototype.add_toolbox = function(size) {
+ABTest.prototype.add_toolbox = function() {
 	$('.abt-toolbox').remove();
 	$('.edited').addClass('bg');
-	//$(this.selectedText($(this))).append(window.myVar.create_toolbox(size));	// Crear el toolbox correspondiente
 };
-
-
-
-
-
-
-
-
-
-
-
-

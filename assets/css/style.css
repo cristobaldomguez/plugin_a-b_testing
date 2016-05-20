@@ -372,6 +372,9 @@
 .abt-toolbox li.abt-li {
   display: none;
 }
+.abt-toolbox li.abt-division {
+  width: 5px;
+}
 .abt-toolbox li i {
   color: #535b5e;
   font-size: 1em;
@@ -396,9 +399,9 @@
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-bottom: solid 12px white;
-  border-left: solid 12px transparent;
-  border-right: solid 12px transparent;
+  border-bottom: solid 8px white;
+  border-left: solid 8px transparent;
+  border-right: solid 8px transparent;
 }
 .abt-toolbox:before {
   content: '';
@@ -409,9 +412,9 @@
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-bottom: solid 14px #535b5e;
-  border-left: solid 14px transparent;
-  border-right: solid 14px transparent;
+  border-bottom: solid 10px #535b5e;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
 }
 .edited.bg {
   background-color: yellow;

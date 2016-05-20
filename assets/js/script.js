@@ -4,31 +4,27 @@ $('*', document.body).mouseup(function(event) {
 	var hasBeenClicked = userSelection.isCollapsed;  			// Para saber si se realizó un click o una selección (Boolean)
 	var rangeObject = userSelection.getRangeAt(0); 				// Retorna el string seleccionado
 	var hasBeenEdited = rangeObject.startContainer.parentNode.getAttribute('class') === 'edited' ? true : false; // Si se ha seleccionado un elemento ya editado (Boolean)
-	var is_contentEditable = $(this).attr('contenteditable');
+	var isNot_ContentEditable = $(this).attr('contenteditable') ? false : true;
 
 	if (!window.myVar) {
 		window.myVar = new ABTest($(this));
-		window.myVar.wrapContent(); 						// Envolver la selección en un span con una clase específica
+		window.myVar.wrapContent();
 	}
 
-	if (!is_contentEditable) {						// Si el contenido no es editable, hacerlo contenteditable y con clase editable
+	if (isNot_ContentEditable) {
 		$(this).makeItEditable();
 	}
 
 	if (hasBeenClicked) {
-
 		if (hasBeenEdited) {
 			window.myVar.add_toolbox('extended');
 			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
 			window.myVar.toolboxOptions(rangeObject);
 		}
-
 	} else if (!hasBeenClicked) {
-
 		if (hasBeenEdited) {
 			window.myVar.add_toolbox('extended');
 			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
-
 		} else {
 			window.myVar.add_toolbox('extended');
 			$(window.myVar.selectedText).append(window.myVar.create_toolbox('extended'));
@@ -36,24 +32,27 @@ $('*', document.body).mouseup(function(event) {
 	}
 });
 
-$('body').on('click', '.abt-b', function() {
-	$('.abt-b').toggleClass('selected');
-	window.myVar.changeStyle('b');
+$('body').on('click', '.abt-te', function() {
+	var clase = $(this).attr('class').split(' ');
+	var val = clase[1].split('-');
+	
+	$('.abt-' + val[1]).toggleClass('selected');
+	window.myVar.changeStyle(val[1]);
 });
 
-$('body').on('click', '.abt-u', function() {
-	$('.abt-u').toggleClass('selected');
-	window.myVar.changeStyle('u');
-});
+$('body').on('click', '.abt-al', function() {
+	var clase = $(this).attr('class').split(' ');
+	var val = clase[1].split('-');
 
-$('body').on('click', '.abt-i', function() {
-	$('.abt-i').toggleClass('selected');
-	window.myVar.changeStyle('i');
+	$('.abt-al').removeClass('selected');
+	$('.abt-' + val[1]).toggleClass('selected');
+	window.myVar.changeStyle(val[1]);
 });
 
 $('body').on('click', '.abt-del', function() {
-	$('.abt-toolbox').remove();
+	$(this).parent().parent().css("text-align", "");
 	$('.edited').contents().unwrap();					// Eliminar el span que envuelve el texto
+	$('.abt-toolbox').remove();
 	window.myVar = null;
 	delete window.myVar;
 });
