@@ -1,6 +1,6 @@
-var ABTest = function(_this, usr) {
-	this._this = _this;
-	this.selectedText = _this.get(0);
+var ABTest = function($this, usr) {
+	this.$this = $this;
+	this.selectedText = $this.get(0);
 	this.data = {};
 	this.data.css = {};
 	this.data.setUser = usr;
@@ -15,7 +15,7 @@ ABTest.prototype.wrapContent = function() {
 
 		var nNd = document.createElement("span");
 		nNd.className = "edited bg";
-		nNd.setAttribute("data-id", window.gVarCount++);
+		nNd.setAttribute("data-id", window.gVarCount);
 		var w = window.getSelection().getRangeAt(0);
 		w.surroundContents(nNd);
 		return nNd.innerHTML;
@@ -173,9 +173,9 @@ ABTest.prototype.add_toolbox = function() {
 	$('.edited').addClass('bg');
 };
 
-ABTest.prototype.button_action = function(_this) {
-	var clase = _this.attr('class').split(' ');
-	var val = clase[1].split('-');
+ABTest.prototype.button_action = function($this) {
+	var $clase = $this.attr('class').split(' ');
+	var val = $clase[1].split('-');
 
 	if (val[1] === 'j' || val[1] === 'l' || val[1] === 'c' || val[1] === 'r') {
 		$('.abt-al').removeClass('selected');
