@@ -15,6 +15,7 @@ ABTest.prototype.wrapContent = function() {
 
 		var nNd = document.createElement("span");
 		nNd.className = "edited bg";
+		nNd.setAttribute("data-id", window.gVarCount++);
 		var w = window.getSelection().getRangeAt(0);
 		w.surroundContents(nNd);
 		return nNd.innerHTML;
