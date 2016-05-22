@@ -19,11 +19,6 @@ $.fn.get_id = function(sel) {
 	var val = false, selection = '';
     for (var i = 0; i < sel.rangeCount; i++) {
         var $sNode = $(sel.getRangeAt(i).startContainer.parentNode);
-        //var $eNode = $(sel.getRangeAt(i).endContainer.parentNode);
-        // if ($sNode.prop("class") === "edited" && $eNode.prop("class") === "edited") {
-        //     console.log($sNode.prop('class'));
-        // }
-
         return $sNode.attr("data-id");
     }
 }
