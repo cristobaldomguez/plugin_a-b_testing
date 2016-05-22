@@ -9,11 +9,11 @@ if (!document.getElementById(cssId)) {
     head.appendChild(link);
 }
 
-window.gVarCount = 0;
-window.gVar = new Array();														// Array para almacenar todas las variables creadas
-//window.gVar[pageNumber] = "something"; 
+window.abt_var = new Array();
+window.abt_varCount = 0;
+window.abt_lastVar = [0, 0];
 
-$('*', document.body).mouseup(function(event) {
+$('p').mouseup(function(event) {
 	event.stopPropagation();
 
 	var userSelection = window.getSelection();
@@ -24,13 +24,17 @@ $('*', document.body).mouseup(function(event) {
 	var currentId = $(this).get_id(userSelection);
 
 	if (currentId) {
-		curObj = window.gVar[currentId];
+		if (currentId > -1) {
+			window.abt_lastVar.pop();
+			window.abt_lastVar.unshift(parseInt(currentId));
+		}
 	} else {
+		window.abt_lastVar.unshift(window.abt_varCount);
+		window.abt_lastVar.pop();
 		abt = new ABTest($(this), _abt.setUser);
-		window.gVar[gVarCount] = (abt);
-		curObj = window.gVar[gVarCount];
-		curObj.wrapContent();
-		gVarCount++;
+		window.abt_var[window.abt_lastVar[0]] = (abt);
+		window.abt_var[window.abt_lastVar[0]].wrapContent();
+		abt_varCount++;
 	}
 
 	if ($isNot_ContentEditable) {
@@ -39,44 +43,49 @@ $('*', document.body).mouseup(function(event) {
 
 	if (hasBeenClicked) {
 		if (hasBeenEdited) {
-			curObj.add_toolbox('extended');
-			$(curObj.selectedText).append(curObj.create_toolbox('extended'));
-			curObj.toolboxOptions(rangeObject);
+			window.abt_var[window.abt_lastVar[0]].add_toolbox('extended');
+			$(window.abt_var[window.abt_lastVar[0]].selectedText).append(window.abt_var[window.abt_lastVar[0]].create_toolbox('extended'));
+			window.abt_var[window.abt_lastVar[0]].toolboxOptions(rangeObject);
 		}
 	} else if (!hasBeenClicked) {
+		$('.edited').removeClass('bg');
 		if (hasBeenEdited) {
-			curObj.add_toolbox('extended');
-			$(curObj.selectedText).append(curObj.create_toolbox('extended'));
+			window.abt_var[window.abt_lastVar[0]].add_toolbox('extended');
+			$(window.abt_var[window.abt_lastVar[0]].selectedText).append(window.abt_var[window.abt_lastVar[0]].create_toolbox('extended'));
 		} else {
-			curObj.add_toolbox('extended');
-			$(curObj.selectedText).append(curObj.create_toolbox('extended'));
+			window.abt_var[window.abt_lastVar[0]].add_toolbox('extended');
+			$(window.abt_var[window.abt_lastVar[0]].selectedText).append(window.abt_var[window.abt_lastVar[0]].create_toolbox('extended'));
 		}
 	}
 });
 
 $('body').on('click', '.abt-te', function(e) {
 	e.preventDefault();
-	curObj.button_action($(this));
+	e.stopPropagation();
+	window.abt_var[window.abt_lastVar[0]].button_action($(this));
 });
 
 $('body').on('click', '.abt-al', function(e) {
 	e.preventDefault();
-	curObj.button_action($(this));
+	e.stopPropagation();
+	window.abt_var[window.abt_lastVar[0]].button_action($(this));
 });
 
 $('body').on('click', '.abt-del', function(e) {
 	e.preventDefault();
-	$(this).parent().parent().css("text-align", "");
-	$('.edited').contents().unwrap();					// Eliminar el span que envuelve el texto
+	e.stopPropagation();
+	$(this).parent().parent().css('text-align', '');
+	$('*[data-id=' + window.abt_lastVar[0] + ']').contents().unwrap();
 	$('.abt-toolbox').remove();
-	curObj = null;
-	delete curObj;
+	window.abt_var[window.abt_lastVar[0]] = null;
+	delete window.abt_var[window.abt_lastVar[0]];
 });
 
 $('body').on('click', '.abt-cl', function(e) {
 	e.preventDefault();
+	e.stopPropagation();
 	$('.abt-toolbox').remove();
-	$('.edited.bg').removeClass('bg');
+	$('[data-id=' + window.abt_lastVar[0] + '].bg').removeClass('bg');
 });
 
 $('body').on('click', '.abt-h', function(e) {
@@ -86,16 +95,12 @@ $('body').on('click', '.abt-h', function(e) {
 
 $('body').on('click', '.abt-sv', function(event) {
 	event.preventDefault();
+	e.stopPropagation();
 	$.ajax({
-		type: "POST",
+		type: 'POST',
 		url: 'http://rPi3.local/',
 		data: myVar.data,
 		success: success,
 		dataType: dataType
 	});
 });
-
-// var div1 = document.getElementById("footer");
-// var align = div1.getAttribute("data-id");
-
-// console.log('value: ' + align);

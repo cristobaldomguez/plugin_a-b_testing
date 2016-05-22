@@ -40,7 +40,7 @@ ABTest.prototype.create_toolbox = function(target) {
 	];
 	
 	if (target === 'extended') {
-		ab_tb = '<ul class="abt-toolbox extended">';
+		ab_tb = '<ul class="abt-toolbox extended" data-id="-1">';
 	} else {
 		ab_tb = '<ul class="abt-toolbox">';
 	}
@@ -49,10 +49,10 @@ ABTest.prototype.create_toolbox = function(target) {
 		$.each(arr, function(key, value) {
 			if (typeof value === 'string' || value instanceof String) {
 				li_value = value;
-				ab_tb += value === 'li' ? '<li class="abt-' + li_value + '">' : '<li>';
+				ab_tb += value === 'li' ? '<li class="abt-' + li_value + '" data-id="-1">' : '<li data-id="-1">';
 
 			} else {
-				ab_tb += '<a href="#" class="abt-' + li_value + ' abt-' + value.classA + '"><i class="icon-' + value.classI + '"></i></a>';
+				ab_tb += '<a href="#" class="abt-' + li_value + ' abt-' + value.classA + '" data-id="-1"><i class="icon-' + value.classI + '" data-id="-1"></i></a>';
 			}
 
 		});
@@ -110,11 +110,11 @@ ABTest.prototype.changeStyle = function(i) {
 	}
 
 	if (eval("this.data" + i + ";")) {
-		(rtrn.css === 'textAlign') ? $('.edited').parent().css(rtrn.prop, rtrn.val) : $('.edited').css(rtrn.prop, rtrn.val);
+		(rtrn.css === 'textAlign') ? $('[data-id=' + window.abt_lastVar[0] + ']').parent().css(rtrn.prop, rtrn.val) : $('[data-id=' + window.abt_lastVar[0] + ']').css(rtrn.prop, rtrn.val);
 
 		this.data.css[rtrn.css] = rtrn.val;
 	} else {
-		$('.edited').removeStyle(rtrn.prop);
+		$('[data-id=' + window.abt_lastVar[0] + ']').removeStyle(rtrn.prop);
 		delete this.data.css[rtrn.css];
 	}
 
@@ -158,7 +158,7 @@ ABTest.prototype.toolboxOptions = function() {
 
 ABTest.prototype.add_toolbox = function() {
 	$('.abt-toolbox').remove();
-	$('.edited').addClass('bg');
+	$('[data-id=' + window.abt_lastVar[0] + ']').addClass('bg');
 };
 
 ABTest.prototype.button_action = function($this) {
@@ -170,5 +170,5 @@ ABTest.prototype.button_action = function($this) {
 	}
 	
 	$('.abt-' + val[1]).toggleClass('selected');
-	window.abt_var[window.num].changeStyle(val[1]);
+	window.abt_var[window.abt_lastVar[0]].changeStyle(val[1]);
 };
