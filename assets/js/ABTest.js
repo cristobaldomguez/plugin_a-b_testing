@@ -32,7 +32,7 @@ ABTest.prototype.create_toolbox = function(target) {
 	if (typeof(target)==='undefined') { target = 'short'; }
 
 	var ab_tb = '', li_value = '', abt_tb_constructor = [
-		['he', { classA: "h", classI: "lifebuoy" }],
+		['he', { classA: "h", classI: "lifebuoy", src: "http://www.apple.com" }],
 		['te', { classA: "b", classI: "bold" }, { classA: "u", classI: "underline" }, { classA: "i", classI: "italic" }, { classA: "a", classI: "font" }],
 		['al', { classA: "j", classI: "align-justify" }, { classA: "l", classI: "align-left" }, { classA: "c", classI: "align-center" }, { classA: "r", classI: "align-right" }],
 		['li', { classA: "it", classI: "text-width" }, { classA: "il", classI: "text-height" }],
@@ -52,7 +52,9 @@ ABTest.prototype.create_toolbox = function(target) {
 				ab_tb += value === 'li' ? '<li class="abt-' + li_value + '" data-id="-1">' : '<li data-id="-1">';
 
 			} else {
-				ab_tb += '<a href="#" class="abt-' + li_value + ' abt-' + value.classA + '" data-id="-1"><i class="icon-' + value.classI + '" data-id="-1"></i></a>';
+				value.src = value.src ? value.src : "#";
+				value.target = value.src !== "#" ? ' target="_blank"' : '';
+				ab_tb += '<a href="' + value.src + '"' + value.target + ' class="abt-' + li_value + ' abt-' + value.classA + '" data-id="-1"><i class="icon-' + value.classI + '" data-id="-1"></i></a>';
 			}
 
 		});

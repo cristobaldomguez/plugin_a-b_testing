@@ -89,8 +89,7 @@ $('body').on('click', '.abt-cl', function(e) {
 });
 
 $('body').on('click', '.abt-h', function(e) {
-	e.preventDefault();
-	
+	window.open($(this).attr('href'),$(this).attr('target'));
 });
 
 $('body').on('click', '.abt-sv', function(event) {
