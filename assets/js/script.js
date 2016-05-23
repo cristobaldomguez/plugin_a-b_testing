@@ -13,7 +13,7 @@ window.abt_var = new Array();
 window.abt_varCount = 0;
 window.abt_lastVar = [0, 0];
 
-$('p').mouseup(function(event) {
+$('*:not(html, body)').mouseup(function(event) {
 	event.stopPropagation();
 
 	var userSelection = window.getSelection();
