@@ -13,13 +13,15 @@ window.abt_var = new Array();
 window.abt_varCount = 0;
 window.abt_lastVar = [0, 0];
 
+// $(this).children().last().hasClass('abt-toolbox');
+
 $('*:not(html, body)').mouseup(function(event) {
 	event.stopPropagation();
 
 	var userSelection = window.getSelection();
-	var hasBeenClicked = userSelection.isCollapsed;						  			// Para saber si se realizó un click o una selección (Boolean)
-	var rangeObject = userSelection.getRangeAt(0); 									// Retorna el string seleccionado
-	var hasBeenEdited = rangeObject.startContainer.parentNode.getAttribute('class') === 'edited' ? true : false; // Si se ha seleccionado un elemento ya editado (Boolean)
+	var hasBeenClicked = userSelection.isCollapsed;
+	var rangeObject = userSelection.getRangeAt(0);		// Retorna el string seleccionado
+	var hasBeenEdited = rangeObject.startContainer.parentNode.getAttribute('class') === 'edited' ? true : false; 	// (Boolean)
 	var $isNot_ContentEditable = $(this).attr('contenteditable') ? false : true;
 	var currentId = $(this).get_id(userSelection);
 
@@ -28,10 +30,11 @@ $('*:not(html, body)').mouseup(function(event) {
 			window.abt_lastVar.pop();
 			window.abt_lastVar.unshift(parseInt(currentId));
 		}
+
 	} else {
 		window.abt_lastVar.unshift(window.abt_varCount);
 		window.abt_lastVar.pop();
-		abt = new ABTest($(this), _abt.setUser);
+		abt = new ABTest($(this), _abt.set_user, _abt.API_key);
 		window.abt_var[window.abt_lastVar[0]] = (abt);
 		window.abt_var[window.abt_lastVar[0]].wrapContent();
 		abt_varCount++;
