@@ -1,9 +1,10 @@
-var ABTest = function($this, usr) {
-	this.$this = $this;
+var ABTest = function($this, usr, api) {
 	this.selectedText = $this.get(0);
 	this.data = {};
 	this.data.css = {};
+	this.data.$this = $this;
 	this.data.setUser = usr;
+	this.data.apiKey = api;
 };
 
 ABTest.prototype.wrapContent = function() {
@@ -42,7 +43,7 @@ ABTest.prototype.create_toolbox = function(target) {
 	if (target === 'extended') {
 		ab_tb = '<ul class="abt-toolbox extended" data-id="-1">';
 	} else {
-		ab_tb = '<ul class="abt-toolbox">';
+		ab_tb = '<ul class="abt-toolbox" data-id="-1">';
 	}
 
 	$.each(abt_tb_constructor, function( index, arr ) {
