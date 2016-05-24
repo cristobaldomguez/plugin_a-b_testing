@@ -75,7 +75,7 @@ $('body').on('click', '.abt-del', function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	$(this).parent().parent().css('text-align', '');
-	$('*[data-id=' + window.abt_lastVar[0] + ']').contents().unwrap();
+	$('[data-id=' + window.abt_lastVar[0] + ']').contents().unwrap();
 	$('.abt-toolbox').remove();
 	window.abt_var[window.abt_lastVar[0]] = null;
 	delete window.abt_var[window.abt_lastVar[0]];
